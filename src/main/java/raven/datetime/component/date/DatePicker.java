@@ -446,7 +446,7 @@ public class DatePicker extends JPanel {
             this.usePanelOption = usePanelOption;
             if (usePanelOption) {
                 if (panelDateOption == null) {
-                    panelDateOption = new PanelDateOption(this);
+                    panelDateOption = createPanelDateOptions();
                 }
                 add(panelDateOption, "dock east,gap 0 10 10 10");
                 repaint();
@@ -461,6 +461,10 @@ public class DatePicker extends JPanel {
             }
         }
     }
+
+	protected PanelDateOption createPanelDateOptions() {
+		return new PanelDateOption(this);
+	}
 
     public boolean isCloseAfterSelected() {
         return closeAfterSelected;
